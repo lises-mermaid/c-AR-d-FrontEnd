@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, Image} from 'react-native';
-import { NativeRouter, Route, Link } from "react-router-native"
+import { NativeRouter, Route, Link } from 'react-router-native'
 
 const Props = {};
 
@@ -26,7 +26,7 @@ export default class App extends Component  {
             <Image source={require('./assets/icons/settings-icon.png')} style={{width: 28, height: 28}} />
           </Link>
         </View>
-  
+
         <Route path="/home" component={Home} />
         <Route exact path="/scan" component={Scan} />
         <Route path="/settings" component={Settings} />

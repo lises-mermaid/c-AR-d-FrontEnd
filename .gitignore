@@ -30,6 +30,11 @@ build/
 local.properties
 *.iml
 
+#ios
+ios/nativeTest-tvOS/Info.plist
+ios/nativeTest.xcodeproj/project.pbxproj
+ios/nativeTest/Info.plist
+
 # node.js
 #
 node_modules/
