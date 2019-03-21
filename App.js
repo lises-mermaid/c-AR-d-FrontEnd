@@ -1,30 +1,37 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image} from 'react-native';
+import { NativeRouter, Route, Link } from "react-router-native"
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+const Props = {};
 
-type Props = {};
-export default class App extends Component<Props> {
+const Home = () => <Text>Home</Text>
+
+const Scan = () => <Text>Scan</Text>
+
+const Settings = () => <Text>Settings</Text>
+
+export default class App extends Component  {
   render() {
     return (
+      <NativeRouter>
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <View style={styles.nav}>
+          <Link to="/home" underlayColor="#f0f4f7" style={styles.navItem}>
+            <Image source={require('./assets/icons/home-icon.png')} style={{width: 28, height: 28}} />
+          </Link>
+          <Link to="/scan" underlayColor="#f0f4f7" style={styles.navItem}>
+            <Image source={require('./assets/icons/scan-icon.png')} style={{width: 28, height: 28}} />
+          </Link>
+          <Link to="/settings" underlayColor="#f0f4f7" style={styles.navItem}>
+            <Image source={require('./assets/icons/settings-icon.png')} style={{width: 28, height: 28}} />
+          </Link>
+        </View>
+  
+        <Route path="/home" component={Home} />
+        <Route exact path="/scan" component={Scan} />
+        <Route path="/settings" component={Settings} />
       </View>
+    </NativeRouter>
     );
   }
 }
