@@ -1,17 +1,24 @@
-import React from 'react'
-import { View } from 'react-native'
-import { NativeRouter, Route } from 'react-router-native'
-import { Home, SignIn, SignUp } from './index'
+import React from 'react';
+import { View, Text } from 'react-native';
+import { NativeRouter, Route, Switch } from 'react-router-native';
+import { Home, SignUp } from './index';
 
-export default Routes = () => (
+const SignIn = props => {
+  return (
+    <View>
+      <Text>Hello</Text>
+    </View>
+  );
+};
+
+export default (Routes = () => (
   <NativeRouter>
     <View>
-      <View>
-        <Route path="/" component={Home} />
-        <Route exact path="/signin" component={SignIn} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
-      </View>
-      <Home />
+      </Switch>
     </View>
   </NativeRouter>
-)
+));
