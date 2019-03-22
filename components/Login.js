@@ -19,13 +19,15 @@ class Login extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <TextInput
           placeholder="email"
+          style={styles.textfield}
           onChangeText={email => this.setState({ ...this.state, email })}
         />
         <TextInput
           placeholder="password"
+          style={styles.textfield}
           onChangeText={password => this.setState({ ...this.state, password })}
         />
         <Button onPress={this.handleSubmit} title="Login" />
@@ -50,3 +52,19 @@ export default connect(
   mapStateToLogin,
   mapDispatch
 )(Login);
+
+const styles = {
+  container: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    marginTop: 250
+  },
+  textfield: {
+    height: 40,
+    width: 180,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 15,
+    padding: 5,
+  },
+};
