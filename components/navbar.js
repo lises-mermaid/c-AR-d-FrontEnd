@@ -1,29 +1,38 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
-import { Link } from 'react-router-native'
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { Link } from 'react-router-native';
 
 const Props = {};
 
-const Home = () => <Text>Home</Text>
+const Home = () => <Text>Home</Text>;
 
-const Scan = () => <Text>Scan</Text>
+const Scan = () => <Text>Scan</Text>;
 
-const Settings = () => <Text>Settings</Text>
+const Settings = () => <Text>Settings</Text>;
 
-export default class Navbar extends Component  {
+export default class Navbar extends Component {
   render() {
     return (
-        <View style={styles.nav}>
-          <Link to="/home" underlayColor="#f0f4f7" style={styles.navItem}>
-            <Image source={require('./assets/icons/home-icon.png')} style={{width: 28, height: 28}} />
-          </Link>
-          <Link to="/scan" underlayColor="#f0f4f7" style={styles.navItem}>
-            <Image source={require('./assets/icons/scan-icon.png')} style={{width: 28, height: 28}} />
-          </Link>
-          <Link to="/settings" underlayColor="#f0f4f7" style={styles.navItem}>
-            <Image source={require('./assets/icons/settings-icon.png')} style={{width: 28, height: 28}} />
-          </Link>
-        </View>
+      <View style={styles.nav}>
+        <Link to="/home" underlayColor="#f0f4f7" style={styles.navItem}>
+          <Image
+            source={require('../assets/icons/home-icon.png')}
+            style={{ width: 28, height: 28 }}
+          />
+        </Link>
+        <Link to="/scan" underlayColor="#f0f4f7" style={styles.navItem}>
+          <Image
+            source={require('../assets/icons/scan-icon.png')}
+            style={{ width: 28, height: 28 }}
+          />
+        </Link>
+        <Link to="/settings" underlayColor="#f0f4f7" style={styles.navItem}>
+          <Image
+            source={require('../assets/icons/settings-icon.png')}
+            style={{ width: 28, height: 28 }}
+          />
+        </Link>
+      </View>
     );
   }
 }
