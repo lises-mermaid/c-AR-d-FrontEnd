@@ -1,56 +1,9 @@
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image} from 'react-native';
-import { NativeRouter, Route, Link } from 'react-router-native'
+import React from 'react'
+import { Provider } from 'react-redux'
+import { Routes } from './components'
 
-const Props = {};
-
-const Home = () => <Text>Home</Text>
-
-const Scan = () => <Text>Scan</Text>
-
-const Settings = () => <Text>Settings</Text>
-
-export default class App extends Component  {
-  render() {
-    return (
-      <NativeRouter>
-      <View style={styles.container}>
-        <View style={styles.nav}>
-          <Link to="/home" underlayColor="#f0f4f7" style={styles.navItem}>
-            <Image source={require('./assets/icons/home-icon.png')} style={{width: 28, height: 28}} />
-          </Link>
-          <Link to="/scan" underlayColor="#f0f4f7" style={styles.navItem}>
-            <Image source={require('./assets/icons/scan-icon.png')} style={{width: 28, height: 28}} />
-          </Link>
-          <Link to="/settings" underlayColor="#f0f4f7" style={styles.navItem}>
-            <Image source={require('./assets/icons/settings-icon.png')} style={{width: 28, height: 28}} />
-          </Link>
-        </View>
-
-        <Route path="/home" component={Home} />
-        <Route exact path="/scan" component={Scan} />
-        <Route path="/settings" component={Settings} />
-      </View>
-    </NativeRouter>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+export default App = () => (
+    <Provider store={ store }>
+        <Routes />
+      </Provider>
+) 
