@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Button } from 'react-native';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-native';
 import { Navbar } from './navbar';
 
 class Home extends Component {
