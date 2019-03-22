@@ -15,11 +15,11 @@ class Home extends Component {
     } else {
       return (
         <View style={styles.buttons}>
-          <Link to="/signin">
+          <Link to="/login">
             <Button
-              title="Sign In"
+              title="Login"
               color="#841584"
-              onPress={() => this.props.history.push('/signin')}
+              onPress={() => this.props.history.push('/login')}
             />
           </Link>
           <Link to="/signup">

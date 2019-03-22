@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import { View, TextInput, Button } from 'react-native';
 import { connect } from 'react-redux';
-import { signup } from '../store';
+import { login } from '../store';
 
-class SignUp extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      username: '',
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit() {
-    this.props.signUp({ ...this.state });
+    this.props.login({ ...this.state });
   }
 
   render() {
@@ -26,32 +25,28 @@ class SignUp extends Component {
           onChangeText={email => this.setState({ ...this.state, email })}
         />
         <TextInput
-          placeholder="username"
-          onChangeText={username => this.setState({ ...this.state, username })}
-        />
-        <TextInput
           placeholder="password"
           onChangeText={password => this.setState({ ...this.state, password })}
         />
-        <Button onPress={this.handleSubmit} title="Sign Up" />
+        <Button onPress={this.handleSubmit} title="Login" />
       </View>
     );
   }
 }
 
-const mapStateToSignup = state => {
+const mapStateToLogin = state => {
   return {
-    name: 'signup',
-    displayName: 'Sign Up',
+    name: 'login',
+    displayName: 'Login',
     error: state.user.error,
   };
 };
 
 const mapDispatch = dispatch => ({
-  signUp: localState => dispatch(signup(localState)),
+  login: localState => dispatch(login(localState)),
 });
 
 export default connect(
-  mapStateToSignup,
+  mapStateToLogin,
   mapDispatch
-)(SignUp);
+)(Login);

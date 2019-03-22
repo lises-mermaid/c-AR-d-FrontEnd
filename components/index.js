@@ -10,3 +10,4 @@ export { default as Navbar } from './navbar';
 export { default as Home } from './home';
 export { default as Routes } from './routes';
 export { default as SignUp } from './SignUp';
+export { default as Login } from './Login';
