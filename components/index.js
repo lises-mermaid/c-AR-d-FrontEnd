@@ -4,8 +4,8 @@
  * having to figure out which file they belong to!
  */
 
-export { default as HomeScreen } from './HomeScreen';
-export { default as TestScreen } from './TestScreen';
-export { default as Navbar } from './navbar';
-export { default as Home } from './home';
-export { default as Routes } from './routes';
+export { default as HomeScreen } from './homeScreen'
+export { default as TestScreen } from './testScreen'
+// export { default as Navbar } from './navbar'
+export { default as Home } from './home'
+export { default as Routes } from './routes'

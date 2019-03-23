@@ -1,17 +1,20 @@
 import React from 'react'
 import { View } from 'react-native'
-import { NativeRouter, Route } from 'react-router-native'
-import { Home, SignIn, SignUp } from './index'
+import { NativeRouter, Route} from 'react-router-native'
+import { Home, SignIn, SignUp, TestScreen, Navbar} from './index'
 
-export default Routes = () => (
+const Routes = () => (
   <NativeRouter>
     <View>
+      <Navbar />
       <View>
-        <Route path="/" component={Home} />
+        <Route path="/home" component={Home} />
+        <Route path="/test" component={TestScreen} />
         <Route exact path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
       </View>
-      <Home />
     </View>
   </NativeRouter>
 )
+
+export default Routes

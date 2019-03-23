@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { View, Button } from 'react-native';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-native';
-import { Navbar } from './navbar';
+import React, { Component } from 'react'
+import { View, Button } from 'react-native'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-native'
+// import { Navbar } from './navbar'
 
 class Home extends Component {
   render() {
     if (this.props.user.id) {
       return (
         <View>
-          <Navbar />
+          {/* <Navbar /> */}
         </View>
-      );
+      )
     } else {
       return (
         <View>
@@ -30,13 +30,13 @@ class Home extends Component {
             />
           </Link>
         </View>
-      );
+      )
     }
   }
 }
 
 const mapStateToProps = state => ({
   user: state.user,
-});
+})
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Home)
