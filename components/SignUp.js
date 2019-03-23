@@ -15,7 +15,7 @@ class SignUp extends Component {
   }
 
   handleSubmit() {
-    this.props.signUp(this.state.email, this.state.username, this.state.password);
+    this.props.signUp(this.state.email, this.state.username, this.state.password, this.props.history);
   }
 
   render() {
@@ -51,7 +51,7 @@ const mapStateToSignup = state => {
 };
 
 const mapDispatch = dispatch => ({
-  signUp: (email, username, password) => dispatch(signup(email, username, password)),
+  signUp: (email, username, password, history) => dispatch(signup(email, username, password, history)),
 });
 
 export default connect(

@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-native';
 import { Navbar } from './navbar';
 
 class Home extends Component {
+  componentDidMount() {
+    alert(JSON.stringify(this.props))
+  }
+
   render() {
-    if (this.props.user.id) {
-      return (
-        <View>
-          <Navbar />
-        </View>
-      );
-    } else {
-      return (
-        <View style={styles.buttons}>
+    return (
+      <View style={styles.container}>
+        {
+          this.props.user.id ?
+            <View>
+              <Text>Welcome {this.props.user.username}</Text>
+              <Navbar /> 
+            </View>
+          :
+          <View style={styles.buttons}>
           <Link to="/login">
             <Button
               title="Login"
@@ -30,9 +35,10 @@ class Home extends Component {
             />
           </Link>
         </View>
-      );
+        }
+      </View>
+    )
     }
-  }
 }
 
 const mapStateToProps = state => ({
@@ -42,6 +48,11 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps)(Home);
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    marginTop: 250
+  },
   buttons: {
     top: 50,
   },

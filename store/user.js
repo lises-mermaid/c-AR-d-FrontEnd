@@ -31,7 +31,7 @@ export const me = () => async dispatch => {
   }
 };
 
-export const signup = (email, username, password) => async dispatch => {
+export const signup = (email, username, password, history) => async dispatch => {
   let res;
   try {
     res = await axios.post(`${server}/auth/signup`, {
@@ -45,13 +45,13 @@ export const signup = (email, username, password) => async dispatch => {
 
   try {
     dispatch(getUser(res.data));
-    // history.push('/home');
+    history.push('/');
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr);
   }
 };
 
-export const login = (email, password) => async dispatch => {
+export const login = (email, password, history) => async dispatch => {
   let res;
   try {
     res = await axios.post(`${server}/auth/login`, { email, password });
@@ -67,7 +67,7 @@ export const login = (email, password) => async dispatch => {
   }
 };
 
-export const logout = () => async dispatch => {
+export const logout = history => async dispatch => {
   try {
     await axios.post(`${server}/auth/logout`);
     dispatch(removeUser());
