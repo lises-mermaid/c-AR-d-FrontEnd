@@ -5,10 +5,6 @@ import { Link } from 'react-router-native';
 import { Navbar } from './navbar';
 
 class Home extends Component {
-  componentDidMount() {
-    alert(JSON.stringify(this.props))
-  }
-
   render() {
     return (
       <View style={styles.container}>
@@ -16,7 +12,7 @@ class Home extends Component {
           this.props.user.id ?
             <View>
               <Text>Welcome {this.props.user.username}</Text>
-              <Navbar /> 
+              {/* <Navbar />   */}
             </View>
           :
           <View style={styles.buttons}>
@@ -30,6 +26,13 @@ class Home extends Component {
           <Link to="/signup">
             <Button
               title="Sign Up"
+              color="#841584"
+              onPress={() => this.props.history.push('/signup')}
+            />
+          </Link>
+          <Link to="/signup">
+            <Button
+              title="Scan a card as Guest"
               color="#841584"
               onPress={() => this.props.history.push('/signup')}
             />

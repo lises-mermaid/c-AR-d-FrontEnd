@@ -14,6 +14,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <View style={styles.nav}>
+        <Text>Hi!</Text>
         <Link to="/home" underlayColor="#f0f4f7" style={styles.navItem}>
           <Image
             source={require('../assets/icons/home-icon.png')}
