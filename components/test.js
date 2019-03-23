@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const TestScreen = () => {
+const Test = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text style={styles.title}>Test</Text>
@@ -15,4 +15,4 @@ const TestScreen = () => {
   )
 }
 
-export default TestScreen
+export default Test

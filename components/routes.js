@@ -1,18 +1,22 @@
 import React from 'react'
 import { View } from 'react-native'
-import { NativeRouter, Route} from 'react-router-native'
-import { Home, SignIn, SignUp, TestScreen, Navbar} from './index'
+import { NativeRouter, Route, Switch } from 'react-router-native'
+import { Auth, Login, SignUp, Root } from '.'
 
 const Routes = () => (
   <NativeRouter>
     <View>
-      <Navbar />
-      <View>
-        <Route path="/home" component={Home} />
-        <Route path="/test" component={TestScreen} />
-        <Route exact path="/signin" component={SignIn} />
+      <Switch>
+        {/* checking if use is logged in */}
+        <Route exact path="/" component={Auth} />
+
+        {/* Routes accessible if user is not logged in */}
+        <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
-      </View>
+
+        {/* shown if user is logged in */}
+        <Route path="/userhome" component={Root} />
+      </Switch>
     </View>
   </NativeRouter>
 )

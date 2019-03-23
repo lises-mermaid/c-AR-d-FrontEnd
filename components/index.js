@@ -4,8 +4,9 @@
  * having to figure out which file they belong to!
  */
 
-export { default as HomeScreen } from './homeScreen'
-export { default as TestScreen } from './testScreen'
-// export { default as Navbar } from './navbar'
+export { default as Auth } from './auth'
 export { default as Home } from './home'
-export { default as Routes } from './routes'
+export { default as Root } from './root'
+export { default as Login } from './login'
+export { default as SignUp } from './signup'
+export { default as Test } from './test'

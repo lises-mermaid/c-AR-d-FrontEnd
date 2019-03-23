@@ -1,10 +1,8 @@
 import axios from 'axios'
 
-
 /**
  * ACTION TYPES
  */
-
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 
@@ -13,46 +11,66 @@ const REMOVE_USER = 'REMOVE_USER'
  */
 const defaultUser = {}
 
-
 /**
  * ACTION CREATORS
  */
-const getUser = user => ({type: GET_USER, user})
-const removeUser = () => ({type: REMOVE_USER})
+const getUser = user => ({ type: GET_USER, user })
+const removeUser = () => ({ type: REMOVE_USER })
 
 /**
  * THUNK CREATORS
  */
+const server = 'https://c-ar-d-server.herokuapp.com'
 export const me = () => async dispatch => {
   try {
-    const res = await axios.get('/auth/me')
+    const res = await axios.get(`${server}/auth/me`)
     dispatch(getUser(res.data || defaultUser))
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 }
 
-export const auth = (email, password, method) => async dispatch => {
+export const signup = (email, username, password, history) => async dispatch => {
   let res
   try {
-    res = await axios.post(`/auth/${method}`, {email, password})
+    res = await axios.post(`${server}/auth/signup`, {
+      email,
+      username,
+      password
+    })
   } catch (authError) {
-    return dispatch(getUser({error: authError}))
+    return dispatch(getUser({ error: authError }))
   }
 
   try {
     dispatch(getUser(res.data))
-    history.push('/home')
+    history.push('/userhome')
   } catch (dispatchOrHistoryErr) {
     console.error(dispatchOrHistoryErr)
   }
 }
 
-export const logout = () => async dispatch => {
+export const login = (email, password, history) => async dispatch => {
+  let res
   try {
-    await axios.post('/auth/logout')
+    res = await axios.post(`${server}/auth/login`, { email, password })
+  } catch (authError) {
+    return dispatch(getUser({ error: authError }))
+  }
+
+  try {
+    dispatch(getUser(res.data))
+    history.push('/userhome')
+  } catch (dispatchOrHistoryErr) {
+    console.error(dispatchOrHistoryErr)
+  }
+}
+
+export const logout = history => async dispatch => {
+  try {
+    await axios.post(`${server}/auth/logout`)
     dispatch(removeUser())
-    history.push('/login')
+    history.push('/')
   } catch (err) {
     console.error(err)
   }
@@ -71,4 +89,3 @@ export default function(state = defaultUser, action) {
       return state
   }
 }
-

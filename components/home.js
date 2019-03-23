@@ -1,42 +1,22 @@
 import React, { Component } from 'react'
-import { View, Button } from 'react-native'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-native'
-// import { Navbar } from './navbar'
+import { Text, View, StyleSheet, Button } from 'react-native'
 
-class Home extends Component {
-  render() {
-    if (this.props.user.id) {
-      return (
-        <View>
-          {/* <Navbar /> */}
-        </View>
-      )
-    } else {
-      return (
-        <View>
-          <Link to="/signin">
-            <Button
-              title="Sign In"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-            />
-          </Link>
-          <Link to="/signup">
-            <Button
-              title="Sign Up"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-            />
-          </Link>
-        </View>
-      )
-    }
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 100
   }
-}
-
-const mapStateToProps = state => ({
-  user: state.user,
 })
 
-export default connect(mapStateToProps)(Home)
+export default class Home extends Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={styles.title}>cARd</Text>
+        <Button
+          title="Go To Test Page"
+          onPress={() => this.props.navigation.navigate('Test')}
+        />
+      </View>
+    )
+  }
+}
